@@ -399,17 +399,29 @@ with st.sidebar:
             current_project if selected_project_option != "(새 프로젝트)" else None,
         )
         if versions:
-            sys_version = st.selectbox("버전 선택", versions, key="sys_version")
+            selected_sys_version = st.selectbox(
+                "불러올 버전", versions, key="sys_version_select"
+            )
             sys_content = load_prompt_content(
                 "system",
                 sys_name,
-                sys_version,
+                selected_sys_version,
                 current_project if selected_project_option != "(새 프로젝트)" else None,
             )
             # 기존 프롬프트의 프로젝트명 조회
-            existing_project = get_prompt_project("system", sys_name, sys_version)
+            existing_project = get_prompt_project(
+                "system", sys_name, selected_sys_version
+            )
             if existing_project:
                 sys_project = existing_project
+
+            # 저장할 때 사용할 버전명 (수정 가능)
+            sys_version = st.text_input(
+                "저장할 버전명",
+                selected_sys_version,
+                key="new_sys_version",
+                help="기존 버전을 수정하거나 새 버전명을 입력하세요 (예: v1.0.1)",
+            )
         else:
             st.warning("저장된 버전이 없습니다.")
     else:
@@ -433,17 +445,29 @@ with st.sidebar:
             current_project if selected_project_option != "(새 프로젝트)" else None,
         )
         if versions:
-            usr_version = st.selectbox("버전 선택", versions, key="usr_version")
+            selected_usr_version = st.selectbox(
+                "불러올 버전", versions, key="usr_version_select"
+            )
             usr_content = load_prompt_content(
                 "user",
                 usr_name,
-                usr_version,
+                selected_usr_version,
                 current_project if selected_project_option != "(새 프로젝트)" else None,
             )
             # 기존 프롬프트의 프로젝트명 조회
-            existing_project = get_prompt_project("user", usr_name, usr_version)
+            existing_project = get_prompt_project(
+                "user", usr_name, selected_usr_version
+            )
             if existing_project:
                 usr_project = existing_project
+
+            # 저장할 때 사용할 버전명 (수정 가능)
+            usr_version = st.text_input(
+                "저장할 버전명",
+                selected_usr_version,
+                key="new_usr_version",
+                help="기존 버전을 수정하거나 새 버전명을 입력하세요 (예: v1.0.1)",
+            )
         else:
             st.warning("저장된 버전이 없습니다.")
     else:
