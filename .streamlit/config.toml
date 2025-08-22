@@ -1,0 +1,13 @@
+[global]
+developmentMode = false
+
+[server]
+port = 8800
+address = "localhost"
+headless = true
+
+[browser]
+gatherUsageStats = false
+
+[client]
+showErrorDetails = true

@@ -1,0 +1,29 @@
+[project]
+name = "ai-prompt-testbench"
+version = "1.0.0"
+description = "OpenAI GPT 모델을 이용한 AI 프롬프트 테스트 및 배치 처리 시스템"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "streamlit>=1.39.0",
+    "openai>=1.68.2",
+    "google-cloud-bigquery>=3.25.0",
+    "python-dotenv>=1.0.0",
+    "pandas>=2.2.3",
+    "numpy>=2.2.5",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+]
+
+[project.scripts]
+# Run with: streamlit run test_ai.py
+# No console scripts needed for Streamlit apps
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build" 

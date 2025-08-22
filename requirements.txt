@@ -1,0 +1,15 @@
+# AI Prompt Test Bench 의존성
+# pip으로 설치하는 경우 사용
+
+streamlit>=1.39.0
+openai>=1.68.2
+google-cloud-bigquery>=3.25.0
+python-dotenv>=1.0.0
+
+# 선택사항 (분석용)
+pandas>=2.2.3
+numpy>=2.2.5
+
+# 배치 처리용
+asyncio
+aiohttp>=3.9.0
