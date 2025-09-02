@@ -13,11 +13,11 @@ cp env.example .env
 
 ### 2. 의존성 설치
 ```bash
-# 방법 1: pip 사용
-pip install -r requirements.txt
+# uv를 사용한 의존성 설치 (권장)
+uv sync
 
-# 방법 2: 프로젝트 설치
-pip install -e .
+# 또는 개발 모드로 설치
+uv pip install -e .
 ```
 
 ### 3. Google Cloud 인증
@@ -28,7 +28,7 @@ gcloud config set project your-project-id
 
 ### 4. 초기 데이터 설정 (필요시)
 ```bash
-python insert_model_pricing.py
+uv run python insert_model_pricing.py
 ```
 
 ### 5. 실행
@@ -37,7 +37,7 @@ python insert_model_pricing.py
 ./run_ai_testbench.sh
 
 # 또는 직접 실행
-streamlit run test_ai.py
+uv run streamlit run test_ai.py
 ```
 
 브라우저에서 http://localhost:8800 에 접속하세요!
@@ -65,4 +65,4 @@ streamlit run test_ai.py
 
 ## 🆘 문제 해결
 
-문제가 발생하면 [상세 가이드](README_AI_TESTBENCH.md)의 트러블슈팅 섹션을 참조하세요.
+문제가 발생하면 [상세 가이드](QUICKSTART.md)의 트러블슈팅 섹션을 참조하세요.
