@@ -1011,9 +1011,7 @@ def list_test_tables() -> List[str]:
     try:
         tables = bq.list_tables(BQ_DATASET)
         # 'test_' 로 시작하는 테이블들만 필터링
-        test_tables = [
-            table.table_id for table in tables if table.table_id.startswith("gyg_")
-        ]
+        test_tables = [table.table_id for table in tables if table.table_id]
         return sorted(test_tables)
     except Exception as e:
         st.warning(f"⚠️ 테스트 테이블 목록 조회 실패: {e}")
